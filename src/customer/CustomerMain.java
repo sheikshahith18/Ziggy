@@ -417,21 +417,17 @@ public class CustomerMain extends Register {
 
 			switch (choice) {
 			case 1: {// register
-				System.out.println("customer home case 1");
 				signup();
 				break;
 			}
 			case 2: {// login
-				System.out.println("customer home case 2");
 				login();
 				break;
 			}
-			case 3: {// goback
-				System.out.println("customer home case 3");
+			case 3: {// go back
 				return;
 			}
 			default: {
-				System.out.println("hotel home default");
 				if (choice == -1)
 					break;
 				System.err.println(Message.INVALID_OPTION);
