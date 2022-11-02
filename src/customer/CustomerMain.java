@@ -21,7 +21,7 @@ public class CustomerMain extends Register {
 		login(this.getMailId(), this.getPassword());
 	}
 
-	void login(String mailId, String password) {
+	private void login(String mailId, String password) {
 		if (!cDB.getCustomerList().containsKey(mailId)) {
 			System.out.print("User Not Found...");
 			Input.keepScreen();
@@ -49,7 +49,7 @@ public class CustomerMain extends Register {
 		successfulLogin(mailId);
 	}
 
-	void successfulLogin(String mailId) {
+	private void successfulLogin(String mailId) {
 
 		Customer c = cDB.getCustomerList().get(mailId);
 		System.out.println("\n....Welcome Mr." + c.getName() + "....\n");
@@ -87,7 +87,7 @@ public class CustomerMain extends Register {
 		} while (choice != 6);
 	}
 
-	void orderFood(Customer c) {
+	private void orderFood(Customer c) {
 		Set<String> set = hDB.getHotelList().keySet();
 		if(!set.isEmpty()) {
 			System.out.println("----------------------------------------");
@@ -207,7 +207,7 @@ public class CustomerMain extends Register {
 
 	}
 
-	void cart(Customer c) {
+	private void cart(Customer c) {
 
 		if (c.getPendingOrder().isEmpty()) {
 			System.out.println("Cart is Empty....Try again later...");
@@ -281,7 +281,7 @@ public class CustomerMain extends Register {
 
 	}
 
-	void trackOrder(Customer c) {
+	private void trackOrder(Customer c) {
 		System.out.print("Enter Order Id : ");
 		int orderId = Input.getInteger(1000, 9999);
 		if (!c.getPendingOrder().containsKey(orderId) && !c.getCompletedOrders().containsKey(orderId)) {
@@ -301,7 +301,7 @@ public class CustomerMain extends Register {
 			return;
 	}
 
-	void viewRecentOrders(Customer c) {
+	private void viewRecentOrders(Customer c) {
 		if (c.getCompletedOrders().isEmpty()) {
 			System.out.println("No orders were delivered...Try again later");
 			Input.keepScreen();
@@ -365,7 +365,7 @@ public class CustomerMain extends Register {
 		return true;
 	}
 
-	void editAccount(Customer c) {
+	private void editAccount(Customer c) {
 		int choice;
 
 		do {
