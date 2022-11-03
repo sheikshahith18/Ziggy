@@ -5,7 +5,7 @@ public abstract class Register extends Data {
 	private int attempt = 1;
 	private static boolean firstTry = true;
 
-	public void login() {
+	protected void login() {
 		System.out.print("Enter Username(mail Id) : ");
 		this.setMailId(Input.getString(false));
 		enterPassword(true);
@@ -19,7 +19,7 @@ public abstract class Register extends Data {
 		this.setPassword(Input.getString(false));
 	}
 
-	public boolean signup() {
+	protected boolean signup() {
 
 		System.out.print("Enter Name : ");
 		this.setName(Input.getString(true));
