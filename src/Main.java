@@ -2,7 +2,6 @@ package Ziggy;
 
 import utility.Init;
 import utility.Input;
-import utility.Message;
 import hotel.HotelMain;
 import customer.CustomerMain;
 
@@ -46,7 +45,7 @@ public class Main {
 			}
 			default: {
 
-				System.out.println(Message.INVALID_OPTION);
+				System.out.println("Invalid Option...Try again....");
 			}
 			}
 
