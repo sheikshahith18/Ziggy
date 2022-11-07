@@ -14,16 +14,15 @@ public class Pizza extends Dish {
 
 	@Override
 	public void print() {
-		if (this.getQuantity() > 0) {
-			super.print();
-			Set<String> set = toppings.keySet();
-			if (!set.isEmpty()) {
-				System.out.println("Toppings : ");
-				for (String str : set) {
-					System.out.println(str + "\t\t" + toppings.get(str));
-				}
+		super.print();
+		Set<String> set = toppings.keySet();
+		if (!set.isEmpty()) {
+			System.out.println("Toppings : ");
+			for (String str : set) {
+				System.out.println(str + "\t\t" + toppings.get(str));
 			}
 		}
+
 	}
 
 	public HashMap<String, Double> getToppings() {
