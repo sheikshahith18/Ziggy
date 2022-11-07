@@ -51,9 +51,7 @@ public class Dish {
 	}
 
 	public void print() {
-		if (quantity > 0)
-			System.out.println(this.getDishId() + "\t\t" + this.getName() + "\t\t" + this.getPrice() + "\t\t"
-					+ this.getCategory());
+		System.out.println(this.getDishId() + "\t\t" + this.getName() + "\t\t" + this.getPrice() + "\t\t" + this.getCategory());
 	}
 
 }
