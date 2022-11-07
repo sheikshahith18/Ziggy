@@ -2,6 +2,8 @@ package utility;
 
 import hotel.Hotel;
 import hotel.HotelDB;
+import customer.Customer;
+import customer.CustomerDB;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -190,6 +192,13 @@ public class Order {
 						+ this.drinks.get(dishId);
 				str += s + "\n";
 			}
+		}
+		
+		if(!this.dish.isEmpty() || !this.pizza.isEmpty() || !this.chicken.isEmpty() || !this.drinks.isEmpty()) {
+			CustomerDB cDB=CustomerDB.getInstance();
+			str+="Customer Name : " + cDB.getCustomerList().get(this.custMail).getName() + "\n";
+			str+="Customer Address : " + cDB.getCustomerList().get(this.custMail).getAddress() + "\n";
+			str+="Hotel Name : " + hDB.getHotelList().get(this.hotelMail).getName()+"\n";
 		}
 		return str;
 	}
