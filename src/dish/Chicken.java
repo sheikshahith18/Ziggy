@@ -14,14 +14,12 @@ public class Chicken extends Dish {
 
 	@Override
 	public void print() {
-		if (this.getQuantity() > 0) {
-			super.print();
-			Set<String> set = extras.keySet();
-			if (!set.isEmpty()) {
-				System.out.println("SideDish :");
-				for (String str : set) {
-					System.out.println(str + "\t\t" + extras.get(str));
-				}
+		super.print();
+		Set<String> set = extras.keySet();
+		if (!set.isEmpty()) {
+			System.out.println("SideDish :");
+			for (String str : set) {
+				System.out.println(str + "\t\t" + extras.get(str));
 			}
 		}
 	}
