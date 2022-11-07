@@ -172,17 +172,14 @@ public class HotelMain extends Register {
 		}
 
 		System.out.print("Enter Order Id : ");
-		int orderId, cnt = 0;
+		
+		int orderId;
 		do {
 			orderId = Input.getInteger(1000, 9999, false);
 			if (!s.contains(orderId)) {
-				System.out.println("Invalid order Id....");
+				System.out.println("Invalid order Id....Enter again : ");
 			}
-		} while (!s.contains(orderId) && cnt++ < 4);
-		if (cnt > 4) {
-			System.err.println("\nToo many attempts....Try again later");
-			return;
-		}
+		} while (!s.contains(orderId));
 
 		if (!h.isOrderAvailable(h.getPendingOrders().get(orderId))) {
 			String str = h.getPendingOrders().get(orderId).toString() + "\nOrder Status : Refunded\n"
