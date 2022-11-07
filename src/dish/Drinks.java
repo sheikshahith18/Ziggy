@@ -17,8 +17,6 @@ public class Drinks extends Dish {
 	}
 
 	public void print() {
-		if (this.getQuantity() > 0)
-			System.out.println(this.getDishId() + "\t\t" + this.getName() + "\t\t" + this.getPrice() + "\t\t"
-					+ this.getTemperature());
+		System.out.println(this.getDishId() + "\t\t" + this.getName() + "\t\t" + this.getPrice() + "\t\t" + this.getTemperature());
 	}
 }
