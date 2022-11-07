@@ -452,14 +452,15 @@ public class CustomerMain extends Register {
 			}
 			case 6: {
 				System.out.print("Enter Old Password : ");
-				String pass = Input.getString(false, false);
-				if (!pass.equals(c.getPassword())) {
-					System.err.println(Message.INCORRECT_PASSWORD);
-					break;
-				}
-				if (newPassword()) {
-					c.setPassword(this.getPassword());
-					System.out.println("\n\u001b[32m" + "Password Changed Successfully" + "\u001b[0m");
+				String password = Input.getString(false, false);
+				if (password.equals(this.getPassword())) {
+
+					if (newPassword()) {
+						c.setPassword(this.getPassword());
+						System.out.println("\n\u001b[32m" + "Password Changed Successfully" + "\u001b[0m");
+					}
+				} else {
+					System.out.println(Message.INCORRECT_PASSWORD);
 				}
 				break;
 			}
