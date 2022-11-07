@@ -11,7 +11,7 @@ public class Init {
 	public static void initializeHotel() {
 
 		HotelDB hDB = HotelDB.getInstance();
-		Hotel h1 = new Hotel("Hotel", "Sheik", "madurai", 625020, "6667776665", "hotel@gmail.com", "Non-Veg, Chinese",
+		Hotel h1 = new Hotel("Hotel SSS", "Sheik", "madurai", 625020, "6667776665", "hotel@gmail.com", "Non-Veg, Chinese",
 				"Qwerty@123");
 
 		h1.addDish(new Dish("Meals", (double) 100, 30, "Veg"));
