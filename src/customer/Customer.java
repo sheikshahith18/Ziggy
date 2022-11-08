@@ -43,8 +43,4 @@ public class Customer extends Data {
 	public UPI getUPI() {
 		return this.upi;
 	}
-
-	public void addOrderHistory(Order order) {
-
-	}
 }
