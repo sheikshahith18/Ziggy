@@ -144,10 +144,6 @@ public class CustomerMain extends Register {
 			case 6: {
 				return;
 			}
-			case 7:{
-				c.print();
-				break;
-			}
 			default: {
 				System.out.println("Invalid Option...Try again");
 			}
