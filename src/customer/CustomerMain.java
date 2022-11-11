@@ -186,17 +186,17 @@ public class CustomerMain extends Register {
 		
 		Hotel h = null;
 
-		boolean flag = true;
+		boolean isIdFound = false;
 
 		set=hotelList.keySet();
 		for (String mailId : set) {
 			if(hotelList.get(mailId).getH_ID()==hId) {
 				h = hDB.getHotelList().get(mailId);				
-				flag = false;
+				isIdFound = true;
 				break;
 			}
 		}
-		if (flag) {
+		if (!isIdFound) {
 			System.out.println("\nHotel Id Not Found.....Try again");
 			return;
 		}
