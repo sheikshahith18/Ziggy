@@ -27,12 +27,12 @@ public class Input {
 			sc.nextLine();
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter numbers only : ");
-			input = getInteger(limit);
+			return getInteger(limit);
 		} catch (MyException e) {
 			System.out.println(e.getMessage());
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter Again : ");
-			input = getInteger(limit);
+			return getInteger(limit);
 		}
 		attempt = 1;
 		return input;
@@ -55,12 +55,12 @@ public class Input {
 			sc.nextLine();
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter numbers only (" + from + " - " + to + ") : ");
-			input = getInteger(from, to, limit);
+			return getInteger(from, to, limit);
 		} catch (MyException e) {
 			System.out.println(e.getMessage());
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter Again : ");
-			input = getInteger(from, to, limit);
+			return getInteger(from, to, limit);
 		}
 		attempt = 1;
 		return input;
@@ -82,12 +82,12 @@ public class Input {
 			sc.nextLine();
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter numbers only : ");
-			input = getDouble(limit);
+			return getDouble(limit);
 		} catch (MyException e) {
 			System.out.println(e.getMessage());
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter Valid Number : ");
-			input = getDouble(limit);
+			return getDouble(limit);
 		}
 		attempt = 1;
 		return input;
@@ -107,7 +107,7 @@ public class Input {
 		input = sc.nextLine();
 		
 		if (input.equals("")) {
-			System.out.println("\n" + "This field can't be empty");
+			System.out.println("\nThis field can't be empty");
 			if (attempt <= 3 || !limit)
 				System.out.print("Enter Again : ");
 			input = getString(isAlphabetOnly, limit);
