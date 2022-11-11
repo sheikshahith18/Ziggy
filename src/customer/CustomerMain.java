@@ -2,8 +2,10 @@ package customer;
 
 import java.util.Set;
 import java.util.HashMap;
+
 import hotel.Hotel;
 import hotel.HotelDB;
+
 import utility.Input;
 import utility.Order;
 import utility.Register;
@@ -142,6 +144,10 @@ public class CustomerMain extends Register {
 			case 6: {
 				return;
 			}
+			case 7:{
+				c.print();
+				break;
+			}
 			default: {
 				System.out.println("Invalid Option...Try again");
 			}
@@ -157,15 +163,16 @@ public class CustomerMain extends Register {
 			System.out.println("Id\t\tName\t\tCategory");
 			System.out.println("----------------------------------------");
 		}
-		boolean flag = true;
 
-		for (String s : set) {
-			if (hDB.getHotelList().get(s).getPin().equals(c.getPin())) {
-				hDB.getHotelList().get(s).printHotel();
-				flag = false;
+		HashMap <String,Hotel> hotelList=new HashMap<>();   // hotels with same pincodes
+
+		for (String mailId : set) {
+			if (hDB.getHotelList().get(mailId).getPin().equals(c.getPin())) {
+				hDB.getHotelList().get(mailId).printHotel();
+				hotelList.put(mailId,hDB.getHotel(mailId));
 			}
 		}
-		if (flag) {
+		if (hotelList.isEmpty()) {
 			System.out.println("\nNo Hotels Were found near your area to serve you.....sorry");
 			return;
 		}
@@ -173,13 +180,18 @@ public class CustomerMain extends Register {
 		System.out.print("\nEnter Hotel Id : ");
 
 		int hId = Input.getInteger(true);
+		
 		if (hId == -1)
 			return;
+		
 		Hotel h = null;
-		flag = true;
-		for (String s : set) {
-			if (hDB.getHotelList().get(s).getPin().equals(c.getPin()) && hDB.getHotelList().get(s).getH_ID() == hId) {
-				h = hDB.getHotelList().get(s);
+
+		boolean flag = true;
+
+		set=hotelList.keySet();
+		for (String mailId : set) {
+			if(hotelList.get(mailId).getH_ID()==hId) {
+				h = hDB.getHotelList().get(mailId);				
 				flag = false;
 				break;
 			}
