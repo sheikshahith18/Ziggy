@@ -341,7 +341,7 @@ public class CustomerMain extends Register {
 				if (name.equals(""))
 					break;
 				c.setName(name);
-				System.out.println("\n\u001b[32m" + "Name Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Name Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 2: {
@@ -349,7 +349,7 @@ public class CustomerMain extends Register {
 				if (address.equals(""))
 					break;
 				c.setAddress(address);
-				System.out.println("\n\u001b[32m" + "Address Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Address Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 3: {
@@ -359,7 +359,7 @@ public class CustomerMain extends Register {
 
 				c.setPincode(pincode);
 
-				System.out.println("\n\u001b[32m" + "Pincode Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Pincode Changed Successfully" + "\u001b[0m");
 
 				break;
 			}
@@ -370,7 +370,7 @@ public class CustomerMain extends Register {
 				CUSTOMER_DB.removeCustomer(c.getMailId());
 				c.setMailId(mailId);
 				CUSTOMER_DB.addCustomer(c);
-				System.out.println("\n\u001b[32m" + "Mail Id Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Mail Id Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 5: {
@@ -379,7 +379,7 @@ public class CustomerMain extends Register {
 					break;
 
 				c.setPhoneNo(phoneNo);
-				System.out.println("\n\u001b[32m" + "Phone No Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Phone No Changed Successfully" + "\u001b[0m");
 				break;
 			}
 
@@ -391,7 +391,7 @@ public class CustomerMain extends Register {
 					String newPassword;
 					if (!(newPassword = super.newPassword(true)).equals("")) {
 						c.setPassword(newPassword);
-						System.out.println("\n\u001b[32m" + "Password Changed Successfully" + "\u001b[0m");
+						System.out.println("\n\u001b[36m" + "Password Changed Successfully" + "\u001b[0m");
 					}
 
 				} else {
