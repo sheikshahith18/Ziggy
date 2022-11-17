@@ -1,5 +1,3 @@
-package Ziggy;
-
 import hotel.HotelMain;
 
 import customer.CustomerMain;
