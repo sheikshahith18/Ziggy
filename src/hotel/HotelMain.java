@@ -104,14 +104,14 @@ public class HotelMain extends Register {
 			case 1: {
 				Dish d = addDish(true, h.isVeg());
 				h.addDish(d);
-				System.out.println("\n\u001b[32m" + "Dish Added Successfully..." + "\u001b[0m\n");
+				System.out.println("\n\u001b[36m" + "Dish Added Successfully..." + "\u001b[0m\n");
 				break;
 			}
 
 			case 2: {
 				Dish d = addDish(false, h.isVeg());
 				h.addDrink(d);
-				System.out.println("\n\u001b[32m" + "Drink Added Successfully..." + "\u001b[0m\n");
+				System.out.println("\n\u001b[36m" + "Drink Added Successfully..." + "\u001b[0m\n");
 				break;
 			}
 			case 3: {
@@ -237,7 +237,7 @@ public class HotelMain extends Register {
 				String name = Input.getString(false, true);
 				if (name.equals(""))
 					break;
-				System.out.println("\n\u001b[32m" + "Name Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Name Changed Successfully" + "\u001b[0m");
 				d.setName(name);
 				break;
 			}
@@ -246,7 +246,7 @@ public class HotelMain extends Register {
 				double price = Input.getDouble(true);
 				if (price == -1)
 					break;
-				System.out.println("\n\u001b[32m" + "Price Updated Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Price Updated Successfully" + "\u001b[0m");
 				d.setPrice(price);
 				break;
 			}
@@ -255,7 +255,7 @@ public class HotelMain extends Register {
 				int quantity = Input.getInteger(true);
 				if (quantity == -1)
 					break;
-				System.out.println("\n\u001b[32m" + "Quantity Updated Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Quantity Updated Successfully" + "\u001b[0m");
 				d.setQuantity(quantity);
 				break;
 			}
@@ -269,6 +269,7 @@ public class HotelMain extends Register {
 						d.setTemperature("cold");
 					else
 						d.setTemperature("hot");
+					System.out.println("\u001b[36m" + "Temperature updated successfully" + "\u001b[0m");
 				} else if (isSideDishPresent) {
 					System.out.print("Enter " + d.getSideDishName() + "'s name : ");
 					String name = Input.getString(false, false);
@@ -277,7 +278,7 @@ public class HotelMain extends Register {
 					if (price == -1)
 						break;
 					d.addExtras(name, price);
-					System.out.println("\u001b[32m" + d.getSideDishName() + " added successfully" + "\u001b[0m");
+					System.out.println("\u001b[36m" + d.getSideDishName() + " added successfully" + "\u001b[0m");
 					break;
 				} else
 					return;
@@ -297,7 +298,7 @@ public class HotelMain extends Register {
 				String name = Input.getString(false, false);
 				if (d.getExtras().containsKey(name)) {
 					d.getExtras().remove(name);
-					System.out.println("\u001b[32m" + d.getSideDishName() + " removed successfully" + "\u001b[0m");
+					System.out.println("\u001b[36m" + d.getSideDishName() + " removed successfully" + "\u001b[0m");
 				} else {
 					System.out.println(d.getSideDishName() + " not found");
 				}
@@ -339,8 +340,7 @@ public class HotelMain extends Register {
 				h.getDishes().remove(dishId);
 			else
 				h.getDrinks().remove(dishId);
-
-			System.out.println("\nDish removed successfully....\n");
+			System.out.println("\u001b[36m" + "\nDish removed successfully....\n" + "\u001b[0m");
 		} else {
 			System.out.println("\nInvalid Dish Id\n");
 		}
@@ -448,7 +448,7 @@ public class HotelMain extends Register {
 				if (name.equals(""))
 					break;
 				h.setName(name);
-				System.out.println("\n\u001b[32m" + "Name Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Name Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 2: {
@@ -457,7 +457,7 @@ public class HotelMain extends Register {
 					break;
 
 				h.setOwnerName(ownerName);
-				System.out.println("\n\u001b[32m" + "Owner's Name Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Owner's Name Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 3: {
@@ -465,7 +465,7 @@ public class HotelMain extends Register {
 				if (address.equals(""))
 					break;
 				h.setAddress(address);
-				System.out.println("\n\u001b[32m" + "Address Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Address Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 4: {
@@ -476,7 +476,7 @@ public class HotelMain extends Register {
 				HOTEL_DB.removeServiceablePincode(h.getPincode());
 				h.setPincode(pincode);
 				HOTEL_DB.addServiceablePincode(pincode);
-				System.out.println("\n\u001b[32m" + "Pincode Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Pincode Changed Successfully" + "\u001b[0m");
 
 				break;
 			}
@@ -487,7 +487,7 @@ public class HotelMain extends Register {
 				HOTEL_DB.removeHotel(h.getMailId());
 				h.setMailId(mailId);
 				HOTEL_DB.addHotel(h);
-				System.out.println("\n\u001b[32m" + "Mail Id Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Mail Id Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 6: {
@@ -496,7 +496,7 @@ public class HotelMain extends Register {
 					break;
 
 				h.setPhoneNo(phoneNo);
-				System.out.println("\n\u001b[32m" + "Phone No Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Phone No Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 7: {
@@ -511,7 +511,7 @@ public class HotelMain extends Register {
 
 				h.setVeg(isVeg);
 
-				System.out.println("\n\u001b[32m" + "Category Changed Successfully" + "\u001b[0m");
+				System.out.println("\n\u001b[36m" + "Category Changed Successfully" + "\u001b[0m");
 				break;
 			}
 			case 8: {
@@ -523,7 +523,7 @@ public class HotelMain extends Register {
 					String newPassword;
 					if (!(newPassword = super.newPassword(true)).equals("")) {
 						h.setPassword(newPassword);
-						System.out.println("\n\u001b[32m" + "Password Changed Successfully" + "\u001b[0m");
+						System.out.println("\n\u001b[36m" + "Password Changed Successfully" + "\u001b[0m");
 					}
 
 				} else {
