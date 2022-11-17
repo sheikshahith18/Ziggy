@@ -49,7 +49,7 @@ public abstract class Register {
 	}
 
 	protected String signup(boolean isHotel) {
-
+		System.out.println();
 		String name = newName(isHotel, false, false);
 		String ownerName = "";
 
@@ -76,7 +76,7 @@ public abstract class Register {
 			String password = newPassword(false);
 
 			HOTEL_DB.addHotel(new Hotel(name, ownerName, address, pincode, phoneNo, mailId, isVeg, password));
-			System.out.println("\n\u001b[32m" + "Account created successfully..." + "\u001b[0m\n");
+			System.out.println("\n\u001b[36m" + "Account created successfully..." + "\u001b[0m\n");
 			return mailId;
 
 		}
@@ -98,7 +98,7 @@ public abstract class Register {
 
 		CUSTOMER_DB.addCustomer(new Customer(name, phoneNo, mailId, address, pincode, password));
 
-		System.out.println("\n\u001b[32m" + "Account created successfully..." + "\u001b[0m\n");
+		System.out.println("\n\u001b[36m" + "Account created successfully..." + "\u001b[0m\n");
 
 		return mailId;
 
@@ -198,7 +198,7 @@ public abstract class Register {
 						+ "\n3.Password should contains at least 1 small letter"
 						+ "\n4.Password should contain at least 1 symbol";
 
-				System.out.println("\u001b[32m" + strongPassword + "\u001b[0m\n");
+				System.out.println("\u001b[36m" + strongPassword + "\u001b[0m\n");
 
 				if (Input.isAttemptExceeded(limit, attempt++))
 					return "";
