@@ -206,9 +206,9 @@ public class HotelMain extends Register {
 				return;
 
 			if (h.getDishes().containsKey(dishId)) {
-				updateDish(h, dishId, true, false);
+				updateDish(h, dishId, true);
 			} else if (h.getDrinks().containsKey(dishId)) {
-				updateDish(h, dishId, false, true);
+				updateDish(h, dishId, false);
 			} else {
 				System.out.println("\nInvalid Dish Id");
 			}
@@ -218,7 +218,7 @@ public class HotelMain extends Register {
 
 	}
 
-	private void updateDish(Hotel h, int dishId, boolean isDish, boolean isDrink) {
+	private void updateDish(Hotel h, int dishId, boolean isDish) {
 		Dish d;
 		if (isDish)
 			d = h.getDishes().get(dishId);
@@ -228,7 +228,7 @@ public class HotelMain extends Register {
 		int choice;
 		do {
 			boolean isSideDishPresent = !d.getExtras().isEmpty();
-			updateDishMenu(d.getSideDishName(), isSideDishPresent, isDrink);
+			updateDishMenu(d.getSideDishName(), !isDish);
 			choice = Input.getInteger(false);
 			switch (choice) {
 
@@ -260,7 +260,7 @@ public class HotelMain extends Register {
 				break;
 			}
 			case 4: {
-				if (isDrink) {
+				if (!isDish) {
 					System.out.print("Set Temperature (1-Cold/2-Hot) : ");
 					int temperature = Input.getInteger(1, 2, true);
 					if (temperature == -1)
@@ -269,7 +269,6 @@ public class HotelMain extends Register {
 						d.setTemperature("cold");
 					else
 						d.setTemperature("hot");
-					System.out.println("\u001b[36m" + "Temperature updated successfully" + "\u001b[0m");
 				} else if (isSideDishPresent) {
 					System.out.print("Enter " + d.getSideDishName() + "'s name : ");
 					String name = Input.getString(false, false);
@@ -286,7 +285,7 @@ public class HotelMain extends Register {
 				break;
 			}
 			case 5: {
-				if (isDrink)
+				if (!isDish)
 					return;
 
 				if (!isSideDishPresent) {
@@ -340,7 +339,8 @@ public class HotelMain extends Register {
 				h.getDishes().remove(dishId);
 			else
 				h.getDrinks().remove(dishId);
-			System.out.println("\u001b[36m" + "\nDish removed successfully....\n" + "\u001b[0m");
+
+			System.out.println("\nDish removed successfully....\n");
 		} else {
 			System.out.println("\nInvalid Dish Id\n");
 		}
@@ -352,7 +352,6 @@ public class HotelMain extends Register {
 			System.out.println("\nNo orders available...try again later");
 			return;
 		}
-
 
 		System.out.println();
 
@@ -578,11 +577,11 @@ public class HotelMain extends Register {
 		System.out.print("\nEnter Your Option : ");
 	}
 
-	private void updateDishMenu(String sideDishName, boolean isSideDishPresent, boolean isDrink) {
+	private void updateDishMenu(String sideDishName, boolean isDrink) {
 		System.out.println("\n1.Change Name");
 		System.out.println("2.Change Price");
 		System.out.println("3.Change Quantity");
-		if (isSideDishPresent) {
+		if (!sideDishName.equals("")) {
 			System.out.println("4.Add " + sideDishName);
 			System.out.println("5.Remove " + sideDishName);
 			System.out.println("6.Go back");
