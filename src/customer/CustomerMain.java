@@ -286,8 +286,8 @@ public class CustomerMain extends Register {
 			HotelDB.getInstance().getHotelList().get(order.getHotelMail()).newOrder(order);
 
 			c.getUPI().payMoney(price);
-			String str = order.getOrderDetails(false) + "\nOrder Status : Paid\n" + Input.getDateTime();
-			c.addCompletedOrder(orderId, str);
+			orderDetail = order.getOrderDetails(false) + "\nOrder Status : Paid\n" + Input.getDateTime();
+			c.addCompletedOrder(orderId, orderDetail);
 			System.out.println("\nPaid successfully...Your order will be delivered soon...\n");
 		} else {
 			System.out.println("\nInvalid Credentials...\n");
