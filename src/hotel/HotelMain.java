@@ -431,8 +431,8 @@ public class HotelMain extends Register {
 			return;
 		}
 
-		for (String str : h.getCompletedOrders()) {
-			System.out.println(str + "\n");
+		for (String orderDetails : h.getCompletedOrders()) {
+			System.out.println(orderDetails + "\n");
 		}
 	}
 
