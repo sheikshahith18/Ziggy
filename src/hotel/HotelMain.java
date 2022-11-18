@@ -353,7 +353,7 @@ public class HotelMain extends Register {
 			return;
 		}
 
-		Set<Integer> s = h.getPendingOrders().keySet();
+
 		System.out.println();
 
 		Set<Integer> set = h.getPendingOrders().keySet();
@@ -369,7 +369,7 @@ public class HotelMain extends Register {
 		int attempt = 1;
 		do {
 			orderId = Input.getInteger(true);
-			if (!s.contains(orderId)) {
+			if (!set.contains(orderId)) {
 				if (Input.isAttemptExceeded(true, attempt++) || orderId == -1)
 					return;
 				System.out.print("Invalid order Id....Enter again : ");
