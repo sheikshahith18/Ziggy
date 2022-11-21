@@ -35,14 +35,14 @@ public class Main {
 			switch (choice) {
 			case 1: {
 
-				HotelMain hm = new HotelMain();
-				hm.mainMenu();
+				HotelMain hotelMain = new HotelMain();
+				hotelMain.mainMenu();
 				break;
 			}
 			case 2: {
 
-				CustomerMain cm = new CustomerMain();
-				cm.mainMenu();
+				CustomerMain customerMain = new CustomerMain();
+				customerMain.mainMenu();
 				break;
 			}
 			case 3: {
