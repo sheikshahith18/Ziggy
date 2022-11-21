@@ -11,7 +11,7 @@ import utility.Order;
 import utility.Register;
 
 
-public class HotelMain extends Register{//} implements UserInterface {
+public class HotelMain extends Register{
 
 	private static final HotelDB HOTEL_DB = HotelDB.getInstance();
 
