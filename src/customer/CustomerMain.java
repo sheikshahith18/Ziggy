@@ -11,7 +11,7 @@ import utility.Input;
 import utility.Order;
 import utility.Register;
 
-public class CustomerMain extends Register{//} implements UserInterface {
+public class CustomerMain extends Register{
 
 	private static final CustomerDB CUSTOMER_DB = CustomerDB.getInstance();
 
